@@ -1,0 +1,19 @@
+
+
+### Create User 
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "username": "BrunoTeste",
+    "email":"brunotest1@example.com",
+    "password": "Test@1234$$"
+}
+
+
+### Get User by ID
+GET http://localhost:3000/user/e48d958c-102f-4bde-931c-9b7f90904236
+
+
+### Get all Users
+GET http://localhost:3000/user
