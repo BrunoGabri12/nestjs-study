@@ -49,7 +49,7 @@ export class UserService {
   }
 
   async findByEmail(email: string) {
-    const user = await this.userRepository.findOneBy({ email });
+    const user = await this.userRepository.findOne({ where: { email } });
     if (!user) {
       throw new NotFoundException();
     }
@@ -72,5 +72,9 @@ export class UserService {
 
   getReferenceById(id: string): Promise<User | null> {
     return this.userRepository.findOneBy({ id });
+  }
+
+  getReferenceByEmail(email: string): Promise<User | null> {
+    return this.userRepository.findOneBy({ email });
   }
 }

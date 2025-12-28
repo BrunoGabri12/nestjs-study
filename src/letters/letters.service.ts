@@ -40,7 +40,8 @@ export class LettersService {
     return LetterMapper.toDto(letterWithRelations);
   }
 
-  findAll(pagination: PaginationDto) {
+  findAll(pagination?: PaginationDto) {
+    throw new Error('Method not implemented.');
     return `This action returns all letters`;
   }
 

@@ -3,21 +3,22 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
-  Delete,
   ParseUUIDPipe,
+  UseInterceptors,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto, UserDo } from './dto/create-user.dto';
 import { PaginatedDto } from 'src/common/dto/paginated.dto';
-import { User } from './entities/user.entity';
+import { SimpleCacheInterceptor } from 'src/common/interceptors/simple-cache/simple-cache.interceptor';
 
 @Controller('user')
+@UseInterceptors(SimpleCacheInterceptor)
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
+
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
   }

@@ -10,12 +10,17 @@ import {
   HttpStatus,
   Query,
   ParseUUIDPipe,
+  UseInterceptors,
 } from '@nestjs/common';
 import { LettersService } from './letters.service';
 import { CreateLetterDto } from './dto/create-letter.dto';
 import { UpdateLetterDto } from './dto/update-letter.dto';
+import { LoggerInterceptor } from 'src/common/interceptors/logger/logger.interceptor';
+import { SimpleCacheInterceptor } from 'src/common/interceptors/simple-cache/simple-cache.interceptor';
 
 @Controller('letters')
+@UseInterceptors(LoggerInterceptor)
+@UseInterceptors(SimpleCacheInterceptor)
 export class LettersController {
   constructor(private readonly lettersService: LettersService) {}
 
@@ -27,6 +32,7 @@ export class LettersController {
   @Get()
   @HttpCode(HttpStatus.OK)
   findAll(/*@Query() pagination: PaginationDto*/) {
+    return this.lettersService.findAll(/*pagination*/);
     return; // this.lettersService.findAll(pagination);
   }
 

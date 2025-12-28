@@ -3,10 +3,10 @@ POST http://localhost:3000/letters
 Content-Type: application/json
 
 {
-    "toId": "b798bbea-5eaf-fdsf-a858-df5cba0746a3",
+    "toId": "b798bbea-5eaf-45ed-a858-df5cba0746a3",
     "fromId": "60c067fc-a85a-4d2b-a6f2-aa21312690fe",
     "letter": "Apenas um testesssssss"
 }
 
 ### Get all letters with pagination
-GET http://localhost:3000/letters/e48d958c-102f-4bde-fd-9b7f90904236
+GET http://localhost:3000/letters/
