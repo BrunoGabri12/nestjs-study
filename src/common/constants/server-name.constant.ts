@@ -1,0 +1,3 @@
+export const SERVER_NAME = 'SERVER_NAME';
+export const ONLY_LOWERCASE = 'ONLY_LOWERCASE';
+export const REMOVE_SPACES = 'REMOVE_SPACES';

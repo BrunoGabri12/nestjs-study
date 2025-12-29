@@ -14,7 +14,7 @@ export class DataBaseConection {
       username: process.env.DB_USERNAME || 'user',
       password: process.env.DB_PASSWORD || 'password',
       database: process.env.DB_NAME || 'database',
-      synchronize: true, // Apenas para desenvolvimento
+      synchronize: !!process.env.SYNCRHONIZE, // Apenas para desenvolvimento
       autoLoadEntities: true, // Apenas para desenvolvimento
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
     },

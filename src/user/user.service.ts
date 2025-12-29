@@ -10,6 +10,16 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { PaginatedDto } from 'src/common/dto/paginated.dto';
 import { UserMapper } from './mapper/user.mapper';
 
+
+/* 
+Scope.DEFAULT -> Singleton (uma vez instanciado, permanece na memoria ate o fim da aplicacao)
+Scope.REQUEST -> Instancia a cada requisicao (uma nova instancia para cada requisicao)
+Scope.TRANSIENT -> Cada classe injetada recebe uma nova instancia da classe (mesmo dentro da mesma requisicao)
+
+
+*/
+
+
 @Injectable()
 export class UserService {
   constructor(
