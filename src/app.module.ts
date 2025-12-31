@@ -10,21 +10,18 @@ import { UserModule } from './user/user.module';
 import {
   ONLY_LOWERCASE,
   REMOVE_SPACES,
-  SERVER_NAME,
 } from './common/constants/server-name.constant';
 import { OnlyLowerCaseRegex } from './common/regex/only-lowercase.regex';
 import { RemoveSpacesRegex } from './common/regex/remove-spaces.regex';
 import { DynamicTestModule } from './dynamic-test/dynamic-test.module';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   controllers: [AppController],
   providers: [
     AppService,
-    {
-      provide: SERVER_NAME,
-      useValue: 'MyNestServer',
-    },
+
     {
       provide: ONLY_LOWERCASE,
       useValue: OnlyLowerCaseRegex,
@@ -50,6 +47,7 @@ import { ConfigModule } from '@nestjs/config';
     DatabaseModule,
     UserModule,
     DynamicTestModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

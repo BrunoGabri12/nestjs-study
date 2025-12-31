@@ -4,6 +4,10 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 //Irá exportar as configurações do banco de dados.
 //Seria adequado criar modulos diferentes para cada banco ?
 
+//Talvez o melhor fosse criar um modulo de configuração geral da aplicação que
+//  exporta as configurações do banco de dados.
+
+
 @Injectable()
 export class DataBaseConection {
   private static readonly dbConfigs: Record<string, TypeOrmModuleOptions> = {

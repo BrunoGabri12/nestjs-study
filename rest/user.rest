@@ -3,17 +3,19 @@
 ### Create User 
 POST http://localhost:3000/user
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0YWU5OThiNi0xMzlhLTRhZTQtYTRhYi0xOTUzMDhkYmMzZjMiLCJlbWFpbCI6ImJydW5vdGVzdDEzNEBleGFtcGxlLmNvbSIsImlhdCI6MTc2NzIwNjk5NX0.e9TB7IRa9AbfKGlqCozW8cJKO3o0MHb3q3XJUxDDCxQ
 
 {
     "username": "BrunoTest4e",
-    "email":"brunotest1@example.com",
+    "email":"brunotest134@example.com",
     "password": "Test@1234$$"
 }
 
 
 ### Get User by ID
 GET http://localhost:3000/user/e48d958c-102f-4bde-931c-9b7f90904236
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0YWU5OThiNi0xMzlhLTRhZTQtYTRhYi0xOTUzMDhkYmMzZjMiLCJlbWFpbCI6ImJydW5vdGVzdDEzNEBleGFtcGxlLmNvbSIsImlhdCI6MTc2NzIwNjk5NX0.e9TB7IRa9AbfKGlqCozW8cJKO3o0MHb3q3XJUxDDCxQ
 
 ### Get all Users
 GET http://localhost:3000/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0YWU5OThiNi0xMzlhLTRhZTQtYTRhYi0xOTUzMDhkYmMzZjMiLCJlbWFpbCI6ImJydW5vdGVzdDEzNEBleGFtcGxlLmNvbSIsImlhdCI6MTc2NzIwNjk5NX0.e9TB7IRa9AbfKGlqCozW8cJKO3o0MHb3q3XJUxDDCxQ

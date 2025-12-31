@@ -9,22 +9,20 @@ import { User } from './entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PaginatedDto } from 'src/common/dto/paginated.dto';
 import { UserMapper } from './mapper/user.mapper';
-
+import { HashingService } from 'src/auth/hashing/hashing.abstract.service';
 
 /* 
 Scope.DEFAULT -> Singleton (uma vez instanciado, permanece na memoria ate o fim da aplicacao)
 Scope.REQUEST -> Instancia a cada requisicao (uma nova instancia para cada requisicao)
 Scope.TRANSIENT -> Cada classe injetada recebe uma nova instancia da classe (mesmo dentro da mesma requisicao)
-
-
 */
-
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
+    private readonly hashingService: HashingService,
   ) {}
 
   async create(createUserDto: CreateUserDto) {
@@ -36,11 +34,12 @@ export class UserService {
       throw new ForbiddenException();
     }
 
-    return this.userRepository.save({
+    const user = await this.userRepository.save({
       username: createUserDto.username,
       email: createUserDto.email,
-      passwordHash: createUserDto.password,
+      passwordHash: await this.hashingService.hash(createUserDto.password),
     });
+    return UserMapper.toDto(user);
   }
 
   async findAll(): Promise<PaginatedDto<UserDo>> {

@@ -1,6 +1,8 @@
 ### Send a letter 
 POST http://localhost:3000/letters
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0YWU5OThiNi0xMzlhLTRhZTQtYTRhYi0xOTUzMDhkYmMzZjMiLCJlbWFpbCI6ImJydW5vdGVzdDEzNEBleGFtcGxlLmNvbSIsImlhdCI6MTc2NzIwNjk5NX0.e9TB7IRa9AbfKGlqCozW8cJKO3o0MHb3q3XJUxDDCxQ
+
 
 {
     "toId": "b798bbea-5eaf-45ed-a858-df5cba0746a3",
